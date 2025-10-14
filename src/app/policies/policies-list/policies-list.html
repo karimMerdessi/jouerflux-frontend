@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+<div class="policies-list">
+  <h2>Policies</h2>
+
+  <!-- Create button -->
+  <div class="create-button">
+    <button [routerLink]="['/policies/create']">+ Create New Policy</button>
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="isLoading || isLoadingFirewalls">Loading policies...</div>
+
+  <!-- Error -->
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <!-- Header -->
+  <div class="list-header" *ngIf="!isLoading && policies.length > 0">
+    <span>ID — Name</span>
+    <span>Firewall</span>
+    <span>Actions</span>
+  </div>
+
+  <!-- List -->
+  <ul *ngIf="!isLoading && policies.length > 0">
+    <li *ngFor="let policy of policies">
+      <span>{{ policy.id }} — {{ policy.name }}</span>
+      <span class="firewall-name">{{ policy.firewallName }}</span>
+      <button class="delete-btn" (click)="confirmDelete(policy.id)">Delete</button>
+    </li>
+  </ul>
+
+  <!-- Empty -->
+  <div *ngIf="!isLoading && policies.length === 0">No policies found.</div>
+
+  <!-- Pagination -->
+  <div class="pagination" *ngIf="totalPages > 1">
+    <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }} / {{ totalPages }}</span>
+    <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+<div class="firewall-list">
+  <h2>Firewalls</h2>
+
+  <!-- Create button -->
+  <div class="create-button">
+    <button [routerLink]="['/firewalls/create']">+ Create New Firewall</button>
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="isLoading">Loading firewalls...</div>
+
+  <!-- Error -->
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <!-- Header -->
+  <div class="list-header" *ngIf="!isLoading && firewalls.length > 0">
+    <span>ID</span>
+    <span>Name</span>
+    <span>Actions</span>
+  </div>
+
+  <!-- List -->
+  <ul *ngIf="!isLoading && firewalls.length > 0">
+    <li *ngFor="let fw of firewalls">
+      <span>{{ fw.id }}</span>
+      <span [routerLink]="['/firewalls', fw.id]" class="clickable">{{ fw.name }}</span>
+      <button class="delete-btn" (click)="confirmDelete(fw.id)">Delete</button>
+    </li>
+  </ul>
+
+  <!-- Empty -->
+  <div *ngIf="!isLoading && firewalls.length === 0">No firewalls found.</div>
+
+  <!-- Pagination -->
+  <div class="pagination" *ngIf="totalPages > 1">
+    <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }} / {{ totalPages }}</span>
+    <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
+  </div>
+</div>

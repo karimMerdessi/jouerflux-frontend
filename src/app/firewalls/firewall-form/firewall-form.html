@@ -1,0 +1,25 @@
+<div class="firewall-form">
+  <h2>Create New Firewall</h2>
+
+  <form [formGroup]="firewallForm" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="name">Firewall Name</label>
+      <input
+        id="name"
+        type="text"
+        formControlName="name"
+        placeholder="Enter firewall name"
+      />
+      <div *ngIf="firewallForm.get('name')?.touched && firewallForm.get('name')?.invalid" class="error">
+        Name is required.
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" [disabled]="isSubmitting">Create</button>
+      <button type="button" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+</div>

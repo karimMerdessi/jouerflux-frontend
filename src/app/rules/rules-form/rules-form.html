@@ -1,0 +1,36 @@
+<div class="rules-form">
+  <h2>Create New Rule</h2>
+
+  <form (ngSubmit)="onSubmit()">
+    <!-- Rule Name -->
+    <div class="form-group">
+      <label for="name">Rule Name</label>
+      <input
+        id="name"
+        name="name"
+        [(ngModel)]="rule.name"
+        required
+        placeholder="Enter rule name"
+      />
+    </div>
+
+    <!-- Policy Select -->
+    <div class="form-group">
+      <label for="policy">Select Policy</label>
+      <select id="policy" name="policy" [(ngModel)]="rule.policy_id" required>
+        <option *ngIf="isLoadingPolicies" disabled>Loading policies...</option>
+        <option *ngFor="let policy of policies" [value]="policy.id">
+          {{ policy.name }} (ID: {{ policy.id }})
+        </option>
+      </select>
+    </div>
+
+    <!-- Actions -->
+    <div class="form-actions">
+      <button type="submit">Create</button>
+      <button type="button" (click)="goBack()">Cancel</button>
+    </div>
+  </form>
+
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+</div>

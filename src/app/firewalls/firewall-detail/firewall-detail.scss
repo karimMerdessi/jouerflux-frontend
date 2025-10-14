@@ -1,0 +1,65 @@
+.firewall-detail {
+  max-width: 700px;
+  margin: 2rem auto;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+
+  h2, h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+
+    strong {
+      width: 80px;
+      display: inline-block;
+      color: #333;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0 0 1rem 0;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  li > ul {
+    margin-top: 4px;
+    padding-left: 1.5rem;
+  }
+
+  li > ul > li {
+    color: #6c757d; // greyed out
+    font-style: italic;
+    margin: 2px 0;
+  }
+
+  .error {
+    color: red;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  button {
+    display: inline-block;
+    margin-top: 1rem;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  button:hover {
+    background-color: #495057;
+  }
+}

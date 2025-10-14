@@ -1,0 +1,43 @@
+<app-navbar></app-navbar>
+<div class="rules-list">
+  <h2>Rules</h2>
+
+  <!-- Create button -->
+  <div class="create-button">
+    <button [routerLink]="['/rules/create']">+ Create New Rule</button>
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="isLoading || isLoadingPolicies">Loading rules...</div>
+
+  <!-- Error -->
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <!-- Header -->
+  <div class="list-header" *ngIf="!isLoading && rules.length > 0">
+    <span>ID</span>
+    <span>Name</span>
+    <span>Policy</span>
+    <span>Actions</span>
+  </div>
+
+  <!-- List -->
+  <ul *ngIf="!isLoading && rules.length > 0">
+    <li *ngFor="let rule of rules">
+      <span>{{ rule.id }}</span>
+      <span>{{ rule.name }}</span>
+      <span class="policy-name">{{ rule.policyName }}</span>
+      <button class="delete-btn" (click)="confirmDelete(rule.id)">Delete</button>
+    </li>
+  </ul>
+
+  <!-- Empty -->
+  <div *ngIf="!isLoading && rules.length === 0">No rules found.</div>
+
+  <!-- Pagination -->
+  <div class="pagination" *ngIf="totalPages > 1">
+    <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }} / {{ totalPages }}</span>
+    <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
+  </div>
+</div>

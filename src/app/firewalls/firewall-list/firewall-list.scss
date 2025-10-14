@@ -1,0 +1,143 @@
+.firewall-list {
+  max-width: 600px;
+  margin: 2rem auto;
+  font-family: Arial, sans-serif;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .create-button {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  }
+
+  .list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    border-bottom: 2px solid #007bff;
+    padding: 8px;
+    background-color: #f8f9fa;
+    color: #333;
+    margin-bottom: 4px;
+
+    span {
+      flex: 1;
+      text-align: center;
+    }
+
+    span:first-child {
+      text-align: left;
+      width: 80px;
+    }
+
+    span:last-child {
+      text-align: right;
+      width: 100px;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+
+      span {
+        flex: 1;
+        text-align: center;
+      }
+
+      span:first-child {
+        text-align: left;
+        width: 80px;
+      }
+
+      span:nth-child(2) {
+        text-align: center;
+      }
+
+      button {
+        width: 100px;
+        text-align: center;
+      }
+    }
+  }
+
+  .clickable {
+    cursor: pointer;
+    color: #007bff;
+  }
+
+  .clickable:hover {
+    text-decoration: underline;
+  }
+
+  .delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .delete-btn:hover {
+    background-color: #b02a37;
+  }
+
+  .error {
+    color: red;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .pagination {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover:not(:disabled) {
+      background-color: #0056b3;
+    }
+
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  }
+}
