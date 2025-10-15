@@ -78,7 +78,7 @@
       }
 
       span:nth-child(2) {
-        text-align: center;
+        text-align: left;
       }
 
       button {
@@ -89,9 +89,13 @@
   }
 
   .clickable {
-    cursor: pointer;
-    color: #007bff;
-  }
+  cursor: pointer;
+  color: #007bff;
+  text-align: left;
+  display: inline-block;
+  width: 100%;            
+  padding-left: 8px;     
+}
 
   .clickable:hover {
     text-decoration: underline;
