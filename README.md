@@ -40,11 +40,17 @@ Run the specific unit test i wrote :
  # Assumptions & Design Choices
 
  -Angular 20 is utilized with standalone components for modularity.
+
  -Reactive Forms are employed for form handling (FirewallForm).
+
  -HttpClient is used for API interactions via FirewallService.
+
  -API endpoints are assumed to be at http://localhost/firewalls
+
  -Basic routing is implemented using Angular Router.
+
  -Forms include validation and error handling.
+
  -Unit tests are written using Jasmine/Karma with mocked HTTP requests.
 
  # Features
@@ -59,79 +65,7 @@ Run the specific unit test i wrote :
 
 # Project Structure
 
-PROJECT_ROOT
-├─ src
-│   ├─ index.html
-│   ├─ main.ts
-│   ├─ styles.scss
-│   └─ app
-│       ├─ app.config.ts
-│       ├─ app.html
-│       ├─ app.routes.ts
-│       ├─ app.scss
-│       ├─ app.spec.ts
-│       └─ app.ts
-│       ├─ firewalls
-│       │   ├─ firewall-detail
-│       │   │   ├─ firewall-detail.html
-│       │   │   ├─ firewall-detail.scss
-│       │   │   ├─ firewall-detail.spec.ts
-│       │   │   └─ firewall-detail.ts
-│       │   ├─ firewall-form
-│       │   │   ├─ firewall-form.html
-│       │   │   ├─ firewall-form.scss
-│       │   │   ├─ firewall-form.spec.ts
-│       │   │   └─ firewall-form.ts
-│       │   └─ firewall-list
-│       │       ├─ firewall-list.html
-│       │       ├─ firewall-list.scss
-│       │       ├─ firewall-list.spec.ts
-│       │       └─ firewall-list.ts
-│       ├─ models
-│       │   ├─ firewall.model.ts
-│       │   ├─ policy.model.ts
-│       │   └─ rule.model.ts
-│       ├─ navbar
-│       │   └─ navbar
-│       │       ├─ navbar.html
-│       │       ├─ navbar.scss
-│       │       ├─ navbar.spec.ts
-│       │       └─ navbar.ts
-│       ├─ policies
-│       │   ├─ policies-form
-│       │   │   ├─ policies-form.html
-│       │   │   ├─ policies-form.scss
-│       │   │   ├─ policies-form.spec.ts
-│       │   │   └─ policies-form.ts
-│       │   └─ policies-list
-│       │       ├─ policies-list.html
-│       │       ├─ policies-list.scss
-│       │       ├─ policies-list.spec.ts
-│       │       └─ policies-list.ts
-│       ├─ rules
-│       │   ├─ rules-form
-│       │   │   ├─ rules-form.html
-│       │   │   ├─ rules-form.scss
-│       │   │   ├─ rules-form.spec.ts
-│       │   │   └─ rules-form.ts
-│       │   └─ rules-list
-│       │       ├─ rules-list.html
-│       │       ├─ rules-list.scss
-│       │       ├─ rules-list.spec.ts
-│       │       └─ rules-list.ts
-│       └─ services
-│           ├─ firewall.service.spec.ts
-│           ├─ firewall.service.ts
-│           ├─ policy.service.ts
-│           └─ rules.service.ts
-├─ assets
-├─ styles.scss
-├─ angular.json
-├─ package.json
-├─ tsconfig.json
-├─ tsconfig.app.json
-├─ tsconfig.spec.json
-└─ README.md
+<pre> ```text PROJECT_ROOT ├─ src │ ├─ index.html │ ├─ main.ts │ ├─ styles.scss │ └─ app │ ├─ app.config.ts │ ├─ app.html │ ├─ app.routes.ts │ ├─ app.scss │ ├─ app.spec.ts │ └─ app.ts │ ├─ firewalls │ │ ├─ firewall-detail │ │ │ ├─ firewall-detail.html │ │ │ ├─ firewall-detail.scss │ │ │ ├─ firewall-detail.spec.ts │ │ │ └─ firewall-detail.ts │ │ ├─ firewall-form │ │ │ ├─ firewall-form.html │ │ │ ├─ firewall-form.scss │ │ │ ├─ firewall-form.spec.ts │ │ │ └─ firewall-form.ts │ │ └─ firewall-list │ │ ├─ firewall-list.html │ │ ├─ firewall-list.scss │ │ ├─ firewall-list.spec.ts │ │ └─ firewall-list.ts │ ├─ models │ │ ├─ firewall.model.ts │ │ ├─ policy.model.ts │ │ └─ rule.model.ts │ ├─ navbar │ │ └─ navbar │ │ ├─ navbar.html │ │ ├─ navbar.scss │ │ ├─ navbar.spec.ts │ │ └─ navbar.ts │ ├─ policies │ │ ├─ policies-form │ │ │ ├─ policies-form.html │ │ │ ├─ policies-form.scss │ │ │ ├─ policies-form.spec.ts │ │ │ └─ policies-form.ts │ │ └─ policies-list │ │ ├─ policies-list.html │ │ ├─ policies-list.scss │ │ ├─ policies-list.spec.ts │ │ └─ policies-list.ts │ ├─ rules │ │ ├─ rules-form │ │ │ ├─ rules-form.html │ │ │ ├─ rules-form.scss │ │ │ ├─ rules-form.spec.ts │ │ │ └─ rules-form.ts │ │ └─ rules-list │ │ ├─ rules-list.html │ │ ├─ rules-list.scss │ │ ├─ rules-list.spec.ts │ │ └─ rules-list.ts │ └─ services │ ├─ firewall.service.spec.ts │ ├─ firewall.service.ts │ ├─ policy.service.ts │ └─ rules.service.ts ├─ assets ├─ styles.scss ├─ angular.json ├─ package.json ├─ tsconfig.json ├─ tsconfig.app.json ├─ tsconfig.spec.json └─ README.md ``` </pre>
 
 # Explanation of the project tree
 
