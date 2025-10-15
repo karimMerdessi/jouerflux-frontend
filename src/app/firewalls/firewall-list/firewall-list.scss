@@ -28,6 +28,20 @@
     }
   }
 
+  .search-box {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+
+  input {
+    padding: 0.4rem 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 220px;
+  }
+}
+
+
   .list-header {
     display: flex;
     justify-content: space-between;

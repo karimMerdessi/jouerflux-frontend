@@ -13,16 +13,25 @@
   <!-- Error -->
   <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
 
+  <div class="search-box" *ngIf="!isLoading && filteredFirewalls.length > 0">
+  <input
+    type="text"
+    placeholder="Search firewalls by name..."
+    [(ngModel)]="searchTerm"
+    (input)="filterFirewalls()"
+  />
+</div>
+
   <!-- Header -->
-  <div class="list-header" *ngIf="!isLoading && firewalls.length > 0">
+  <div class="list-header" *ngIf="!isLoading && filteredFirewalls.length > 0">
     <span>ID</span>
     <span>Name</span>
     <span>Actions</span>
   </div>
 
   <!-- List -->
-  <ul *ngIf="!isLoading && firewalls.length > 0">
-    <li *ngFor="let fw of firewalls">
+  <ul *ngIf="!isLoading && filteredFirewalls.length > 0">
+    <li *ngFor="let fw of filteredFirewalls">
       <span>{{ fw.id }}</span>
       <span [routerLink]="['/firewalls', fw.id]" class="clickable">{{ fw.name }}</span>
       <button class="delete-btn" (click)="confirmDelete(fw.id)">Delete</button>
@@ -30,7 +39,7 @@
   </ul>
 
   <!-- Empty -->
-  <div *ngIf="!isLoading && firewalls.length === 0">No firewalls found.</div>
+  <div *ngIf="!isLoading && filteredFirewalls.length === 0">No firewalls found.</div>
 
   <!-- Pagination -->
   <div class="pagination" *ngIf="totalPages > 1">

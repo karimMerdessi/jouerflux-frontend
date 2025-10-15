@@ -4,11 +4,12 @@ import { FirewallService } from '../../services/firewall.service';
 import { Firewall, FirewallPaginatedResponse } from '../../models/firewall.model';
 import { RouterModule } from '@angular/router';
 import { Navbar } from '../../navbar/navbar/navbar';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-firewall-list',
   standalone: true,
-  imports: [CommonModule, RouterModule, Navbar],
+  imports: [CommonModule, RouterModule, Navbar, FormsModule],
   templateUrl: './firewall-list.html',
   styleUrl: './firewall-list.scss'
 })
@@ -19,6 +20,8 @@ export class FirewallList implements OnInit {
   totalPages = 1;
   isLoading = false;
   errorMessage = '';
+  searchTerm = '';
+  filteredFirewalls: any[] = [];
 
   constructor(private firewallService: FirewallService) {}
 
@@ -34,6 +37,7 @@ export class FirewallList implements OnInit {
     this.firewallService.getFirewalls(page, 10).subscribe({
       next: (response: FirewallPaginatedResponse) => {
         this.firewalls = response.items;
+        this.filteredFirewalls = response.items;
         this.currentPage = response.current_page;
         this.totalPages = response.total_pages;
         this.isLoading = false;
@@ -68,4 +72,11 @@ export class FirewallList implements OnInit {
       this.loadFirewalls(page);
     }
   }
+
+  filterFirewalls() {
+  const term = this.searchTerm.toLowerCase().trim();
+  this.filteredFirewalls = this.firewalls.filter(fw =>
+    fw.name.toLowerCase().includes(term)
+  );
+}
 }
